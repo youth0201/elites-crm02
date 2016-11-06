@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102101702) do
+ActiveRecord::Schema.define(version: 20161103065521) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
     t.integer  "customer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   add_index "comments", ["customer_id"], name: "index_comments_on_customer_id"
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 20161102101702) do
     t.datetime "updated_at",                          null: false
     t.string   "family_name"
     t.string   "given_name"
+    t.text     "image_url"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
